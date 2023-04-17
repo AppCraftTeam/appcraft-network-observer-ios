@@ -11,11 +11,11 @@ import Foundation
 /// API represented access to reactive properties
 public protocol ACRXNetworkObservable {
     
-    /// isExansive publisher
-    var isExansivePublisher: AnyPublisher<Bool, Never> { get }
+    /// isExpensive publisher
+    var isExpensivePublisher: AnyPublisher<Bool, Never> { get }
     
     /// isConnected publisher
-    var isConntectedPublisher: AnyPublisher<Bool, Never> { get }
+    var isConnectedPublisher: AnyPublisher<Bool, Never> { get }
     
     /// interfaceType publisher
     var interfaceTypePublisher: AnyPublisher<ACNetworkInterfaceType, Never> { get }
@@ -38,11 +38,11 @@ open class ACNetworkObserver: NSObject, ACNetworkObserverInterface {
     private let _isConnectedSubject = PassthroughSubject<Bool, Never>()
     private let _interfaceTypeSubject = PassthroughSubject<ACNetworkInterfaceType, Never>()
     
-    public var isExansivePublisher: AnyPublisher<Bool, Never> {
+    public var isExpensivePublisher: AnyPublisher<Bool, Never> {
         self._isExansiveSubject.receive(on: outputQueue).eraseToAnyPublisher()
     }
     
-    public var isConntectedPublisher: AnyPublisher<Bool, Never> {
+    public var isConnectedPublisher: AnyPublisher<Bool, Never> {
         self._isConnectedSubject.receive(on: outputQueue).eraseToAnyPublisher()
     }
     

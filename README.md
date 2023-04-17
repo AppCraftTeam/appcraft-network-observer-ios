@@ -58,7 +58,7 @@ class Client: NSObject {
         super.init()
         // Attaches a subscriber with closure-based behavior to a publisher
         self.networkObserver
-            .isConntectedPublisher
+            .isConnectedPublisher
             .sink { [weak self] isConnected in
                 // Do some
             }
