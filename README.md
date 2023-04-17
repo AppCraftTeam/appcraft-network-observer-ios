@@ -11,7 +11,7 @@ ACNetworkObserver is a wrapper for Apple's [NWPathMonitor] that providing monito
 To include ACNetworkObserver into a SPM package, add it to the `dependencies` attribute defined in your `Package.swift` file. You can select the version using the `version`  parameter. For example:
 ```ruby
 dependencies: [
-  .package(url: "https://github.com/AppCraftTeam/ACNetworkObserver.git", from: <version>)
+  .package(url: "https://github.com/AppCraftTeam/appcraft-network-observer-ios.git", from: <version>)
 ]
 ```
 ## Usage
@@ -23,7 +23,7 @@ dependencies: [
 class Client: NSObject {
     let networkObserver: ACNetworkObserverInterface
     
-    init(networkObserver: : ACNetworkObserverInterface = ACNetworkObserver()) {
+    init(networkObserver: ACNetworkObserverInterface = ACNetworkObserver()) {
         self.networkObserver = networkObserver
         
         super.init()
@@ -52,7 +52,7 @@ class Client: NSObject {
     private var cancelations = Set<AnyCancellable>()
     private let networkObserver: ACNetworkObserverInterface
 
-    init(networkObserver: : ACNetworkObserverInterface = ACNetworkObserver()) {
+    init(networkObserver: ACNetworkObserverInterface = ACNetworkObserver()) {
         self.networkObserver = networkObserver
         
         super.init()
@@ -76,8 +76,10 @@ class Client: NSObject {
 }
 ```
 ### Custom monitors
-You can create a mock monitor object with the behavior you need. 
+You can create a mock monitor object with the behavior you need.
+
 **For example:**
+
 [BadNetworkMonitor] - a monitor that switches the isConnected bool value every n-seconds.
 ```swift
 class Client: NSObject {
@@ -104,5 +106,5 @@ Damian Bazhenov | [Github][CreatorGithub]
 
 [//]: # (Links)
    [CreatorGithub]: <https://github.com/uxn0w>
-   [BadNetworkMonitor]: </Sources/Monitors/Variants/BadNetworkMonitor.swift>   
+   [BadNetworkMonitor]: </Sources/ACNetworkObserver/Monitors/Variants/BadNetworkMonitor.swift>   
    [NWPathMonitor]: <https://developer.apple.com/documentation/network/nwpathmonitor>
